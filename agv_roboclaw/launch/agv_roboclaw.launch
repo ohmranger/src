@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="scan" args="0.14 0 0 0 0 0 1 base_footprint scan 100" /> 
+  <node pkg="tf" type="static_transform_publisher" name="base_link" args="0 0 0.2 0 0 0 1 base_footprint base_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="imu" args="0 0 -0.08 0 0 0 1 base_footprint imu 100" />
+
+  <node name="agv_roboclaw" pkg="agv_roboclaw" type="agv_roboclaw.py">
+
+  </node>
+</launch>
