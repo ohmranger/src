@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot name="agv_ohm_sim" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:arg name="laser_visual" default="false"/>
+  <xacro:arg name="laser_visual" default="true"/>
   <xacro:arg name="imu_visual"   default="false"/>
 
   <gazebo reference="base_link">
@@ -38,6 +38,15 @@
     <maxVel>1.0</maxVel>
     <material>Gazebo/FlatBlack</material>
   </gazebo>
+  <gazebo reference="caster_font_link">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
 
   <gazebo reference="imu_link">
     <sensor type="imu" name="imu">
@@ -62,8 +71,8 @@
       <updateRate>30</updateRate>
       <leftJoint>wheel_left_joint</leftJoint>
       <rightJoint>wheel_right_joint</rightJoint>
-      <wheelSeparation>0.160</wheelSeparation>
-      <wheelDiameter>0.066</wheelDiameter>
+      <wheelSeparation>0.355</wheelSeparation>
+      <wheelDiameter>0.127</wheelDiameter>
       <wheelAcceleration>1</wheelAcceleration>
       <wheelTorque>10</wheelTorque>
       <rosDebugLevel>na</rosDebugLevel>
@@ -110,13 +119,13 @@
           <horizontal>
             <samples>360</samples>
             <resolution>1</resolution>
-            <min_angle>0.0</min_angle>
-            <max_angle>6.28319</max_angle>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
           </horizontal>
         </scan>
         <range>
-          <min>0.120</min>
-          <max>3.5</max>
+          <min>0.3</min>
+          <max>25</max>
           <resolution>0.015</resolution>
         </range>
         <noise>
